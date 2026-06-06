@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 import { registerUser } from '../features/auth/authThunks.js';
 import { registerSchema } from '../utils/validationSchemas.js';
 import FormInput from '../components/form/FormInput.jsx';
-import GoogleButton from '../components/form/GoogleButton.jsx';
 import Spinner from '../components/common/Spinner.jsx';
 
 const Register = () => {
@@ -78,14 +77,6 @@ const Register = () => {
           {isSubmitting ? <Spinner /> : 'Create account'}
         </button>
       </form>
-
-      <div className="my-6 flex items-center gap-3">
-        <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
-        <span className="text-xs uppercase text-gray-400">or</span>
-        <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
-      </div>
-
-      <GoogleButton label="Sign up with Google" />
 
       <p className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
         Already have an account?{' '}

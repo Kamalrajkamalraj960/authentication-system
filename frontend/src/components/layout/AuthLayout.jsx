@@ -22,11 +22,11 @@ const AuthLayout = () => (
           built for scale.
         </h1>
         <p className="mt-4 max-w-md text-brand-100">
-          JWT access &amp; refresh tokens, refresh-token rotation, Google OAuth, email
-          verification, and role-based access control — production-ready out of the box.
+          JWT access &amp; refresh tokens, refresh-token rotation, email verification,
+          password reset, and role-based access control — production-ready out of the box.
         </p>
         <ul className="mt-8 space-y-3 text-sm text-brand-50">
-          {['Refresh-token rotation & reuse detection', 'Google OAuth 2.0 sign-in', 'Role-based authorization', 'Secure httpOnly cookies'].map(
+          {['Refresh-token rotation & reuse detection', 'Email verification & password reset', 'Role-based authorization', 'Secure httpOnly cookies'].map(
             (item) => (
               <li key={item} className="flex items-center gap-2">
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20">✓</span>

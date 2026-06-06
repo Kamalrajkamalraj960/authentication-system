@@ -18,7 +18,6 @@ import Register from './pages/Register.jsx';
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import ResetPassword from './pages/ResetPassword.jsx';
 import VerifyEmail from './pages/VerifyEmail.jsx';
-import OAuthCallback from './pages/OAuthCallback.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Profile from './pages/Profile.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
@@ -41,7 +40,6 @@ const App = () => {
     <Routes>
       {/* Standalone pages (own full-screen layout) */}
       <Route path="/verify-email" element={<VerifyEmail />} />
-      <Route path="/oauth/callback" element={<OAuthCallback />} />
       <Route path="/unauthorized" element={<Unauthorized />} />
 
       {/* Public-only routes (redirect away if logged in) */}

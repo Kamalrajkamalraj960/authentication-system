@@ -72,17 +72,16 @@ const AdminDashboard = () => {
         </p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats ? (
           <>
             <StatTile label="Total users" value={stats.total} />
             <StatTile label="Admins" value={stats.admins} />
             <StatTile label="Standard" value={stats.users} />
             <StatTile label="Verified" value={stats.verified} />
-            <StatTile label="Google" value={stats.google} />
           </>
         ) : (
-          Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="h-20" />)
+          Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-20" />)
         )}
       </div>
 
