@@ -33,9 +33,15 @@ export const createApp = () => {
   app.use(
     cors({
       origin(origin, callback) {
-        // Allow same-origin / server-to-server (no Origin header) and whitelisted origins.
-        if (!origin || config.cors.origins.includes(origin)) return callback(null, true);
-        return callback(new Error(`CORS: origin ${origin} not allowed`));
+        // Allow same-origin / server-to-server (no Origin header).
+        if (!origin) return callback(null, true);
+        // Compare ignoring a trailing slash so `https://x.app` and `https://x.app/`
+        // both match — the browser sends the Origin without a trailing slash.
+        const normalize = (o) => o.replace(/\/+$/, '');
+        const allowed = config.cors.origins.map(normalize);
+        if (allowed.includes(normalize(origin))) return callback(null, true);
+        // Reject cleanly: no CORS headers (browser blocks) without a 500 / stack leak.
+        return callback(null, false);
       },
       credentials: true,
       methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
